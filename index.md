@@ -2332,12 +2332,102 @@ $$
 
 因此 , $\alpha_1, \alpha_2, \dots , \alpha_n$ 是 $R^n$ 的标准正交基的充要条件是以 $\alpha_1, \alpha_2, \dots , \alpha_n$ 为列向量构成的矩阵是一个正交矩阵
 
-> 定理3 设 $\alpha_1, \alpha_2, \dots , \alpha_m$ 是欧式空间 $V$ 的一组基, 则存在 $V$ 的一组标准正交基 $\beta_1, \beta_2, \dots , \beta_m$ 可由 $\alpha_1, \alpha_2, \dots , \alpha_k$ 线性表示
+> 定理3 设 $\alpha_1, \alpha_2, \dots , \alpha_m$ 是欧式空间 $V$ 的一组基, 则存在 $V$ 的一组标准正交基 $\beta_1, \beta_2, \dots , \beta_m$ , 使 $\beta_k$ 可由 $\alpha_1, \alpha_2, \dots , \alpha_k$ 线性表示
+
+证明
+
+第一步: 正交化
 
 $$
-
+\begin{aligned}
+ & 取 \gamma_1 = \alpha_1, 则 \gamma_1 \ne \mathbf{0} \\
+ & 再取 \gamma_2 = \alpha_2 = \frac{(\alpha_1, \gamma_1)}{(\gamma_1, \gamma_1)} \gamma_1 \\
+ & 则 \gamma_2 可由 \alpha_1, \alpha_2 线性表示, 又\alpha_1, \alpha_2线性无关, 则 \gamma_2 \ne \mathbf{0} \\
+ & 且有 \ (\gamma_2, \gamma_2) = (\alpha_2, \gamma_1) - \frac{(\alpha_2, \gamma_1)}{(\gamma_1, \gamma_1)} (\gamma_1, \gamma_1) = 0 \\
+ & 即 \ \gamma_1 \bot \gamma_2 \\
+ & \ \\
+ & 对于 1 < k < m, 可在V中取到正交的非零向量 \gamma_1, \gamma_2, \dots, \gamma_{k - 1}, 且 \gamma_i 可由 \alpha_1, \alpha_2, \dots, \alpha_k 线性表示 \\
+ & 又 \alpha_1, \alpha_2, \dots, \alpha_k 线性无关, 则 \gamma_k \ne \mathbf{0} \\
+ & 又 \gamma_1, \gamma_2, \dots, \gamma_{k - 1} 两两正交, 且 \\
+ & (\gamma_k, \gamma_i) = (\alpha_k, \alpha_i) - \frac{(\alpha_k, \gamma_i)}{(\gamma_i, \gamma_i)} (\gamma_i, \gamma_i) = 0 \ , \ i = 1, 2, \dots , k - 1 \\
+ & 即 \gamma_1, \gamma_2, \dots, \gamma_k 仍两两正交 \\
+ & \\
+ & 由数学归纳法可知, V中存在一组正交基 \gamma_1, \gamma_2, \dots, \gamma_m, 使 \gamma_k 可由 \alpha_1, \alpha_2, \dots, \alpha_k 线性表示 (k = 1, 2, \dots , m)
+\end{aligned}
 $$
 
+第二步: 单位化
+
+$$
+\begin{aligned}
+  & 把 \gamma_1, \gamma_2, \dots, \gamma_m 单位化, 令 \\
+  & \beta_k = \frac{1}{\parallel \gamma_k \parallel} \gamma_k \ , \ k = 1, 2, \dots , m \\
+  & 则 \beta_1, \beta_2, \dots , \beta_m 为满足要求的标准正交基
+\end{aligned}
+$$
+
+上述定理提供了通过 $V$ 的一组线性无关向量组构造 $V$ 的单位正交向量组的方法, 称为 _施密特正交化过程_
+
+例
+设 $V = L(\alpha_1, \alpha_2, \alpha_3$ , 其中
+
+$$
+\alpha_1, (1, 1, 0, 0) \ , \ \alpha_2 = (1, 0, 1, 0) \ , \ \alpha_3 = (-1, 0, 0, 1)
+$$
+
+试用施密特正交化过程求 $V$ 的一组标准正交基
+
+$$
+\begin{aligned}
+ & 令 \ A = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} = \begin{pmatrix}
+  1 & 1 & 0 & 0 \\
+  1 & - & 1 & 0 \\
+  -1 & 0 & 0 & 1 
+ \end{pmatrix} \\
+ & r(A) = 3, \alpha_1, \alpha_2, \alpha_3 线性无关, 即 \alpha_1, \alpha_2, \alpha_3 构成 V 的一组基 \\
+ & \ \\
+ & 正交化: \\
+ & \gamma_1 = \alpha_1 = (1, 1, 0, 0) \\
+ & \gamma_2 = \alpha_2 - \frac{(\alpha_2, \gamma_1)}{(\gamma_1, \gamma_1)} \gamma_1 = (\frac{1}{2}, - \frac{1}{2}, 1, 0) = \frac{1}{2} (1, -1, 2, 0) \\
+ & \gamma_3 = \alpha_3 - \frac{(\alpha_3, \gamma_1)}{(\gamma_1, \gamma_1)} \gamma_1 - \frac{(\alpha_3, \gamma_2)}{(\gamma_2, \gamma_2)} = (-\frac{1}{3}, \frac{1}{3}, \frac{1}{3}, 1) = \frac{1}{3} (-1, 1, 1, 3) \\
+ & \ \\
+ & 单位化: \\
+ & \beta_k = \frac{\gamma_k}{\parallel \gamma_k \parallel} \\
+ & \beta_1 = (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0, 0) \\
+ & \beta_2 = (\frac{1}{\sqrt{6}}, - \frac{1}{\sqrt{6}}, \frac{2}{\sqrt{6}}, 0) \\
+ & \beta_3 = (- \frac{1}{\sqrt{12}}, \frac{1}{\sqrt{12}}, \frac{1}{\sqrt{12}}, \frac{3}{\sqrt{12}})
+\end{aligned}
+$$
+
+> 定理4 由标准正交基到标准正交基的过渡矩阵是正交矩阵, 反之, 由标准正交基经过渡矩阵得到的基也是标准正交基
+
+设 $\alpha_1, \alpha_2, \dots, \alpha_m$ 与 $\beta_1, \beta_2, \dots , \beta_m$ 是 $m$ 维欧式空间 $V$ 的两组基, 其中 $\alpha_1, \alpha_2, \dots, \alpha_m$ 是标准正交基, 且从 $\alpha_1, \alpha_2, \dots, \alpha_m$ 到 $\beta_1, \beta_2, \dots , \beta_m$ 的过渡矩阵 $A = (a_{ij})$ , 即
+
+$$
+(\beta_1, \beta_2, \dots , \beta_m) = (\alpha_1, \alpha_2, \dots, \alpha_m) \begin{pmatrix}
+  a_{11} & a_{12} & \dots & a_{1m} \\
+  a_{21} & a_{22} & \dots & a_{2m} \\
+  \vdots & \vdots &   & \vdots \\
+  a_{m1} & a_{m2} & \dots & a_{mm}
+\end{pmatrix}
+$$
+
+则 $\beta_1, \beta_2, \dots , \beta_m$ 为标准正交基当且仅当 
+
+$$
+(\beta_i, \beta_j) = a_{1i}a_{1j} + a_{2i}a_{2j} + \dots + a_{mi}a_{mj} = \begin{cases}
+  & 1 \ , \ i = j \\
+  & 0 \ , \ i \ne j
+\end{cases}
+$$
+
+上式等价于
+
+$$
+A^TA = E
+$$
+
+即 $A$ 为正交矩阵
 
 $$
 (\ge \omega \le)
