@@ -7,37 +7,37 @@
 			body {
 				background-color: #2b2b3b;
 			}
+			a:link, a:visited {
+				color: #00aaff;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: 3px #00aaff underline;
+			}
 			#title {
-				width: 800px;
+				width: 400px;
 				margin-left: auto;
 				margin-right: auto;
 				margin-top: 20px;
 				color: #eeeeee;
 			}
 			#title-1 {
-				width: 800px;
+				width: 400px;
 				font-size: 35px;
 				font-weight: bold;
 				text-align: center;
 			}
 			#title-1-en {
-				width: 800px;
+				width: 400px;
 				font-size: 25px;
 				font-weight: bold;
 				text-align: center;
 			}
 			#title-2 {
-				width: 800px;
+				width: 400px;
 				font-size: 20px;
 				margin-top: 10px;
 				text-align: center;
-			}
-			#title-2 > a:link, #title-2 > a:visited {
-				color: #00aaff;
-				text-decoration: none;
-			}
-			#title-2 > a:hover {
-				text-decoration: 3px #00aaff underline;
 			}
 			#title-2 > a > img {
 				width: 30px;
@@ -45,13 +45,25 @@
 				vertical-align: -5px;
 			}
 			#index {
-				width: 800px;
+				width: 250px;
 				margin-left: auto;
 				margin-right: auto;
 				margin-top: 50px;
 			}
 			#index-book {
-				
+				color: #eeeeee;
+				font-size: 20px;
+				text-align: left;
+			}
+			#index-chapter {
+				color: #eeeeee;
+				font-size: 20px;
+				margin-top: 20px;
+				text-align: left;
+			}
+			#index-chapter > li {
+				margin-left: 15px;
+				list-style-type: square;
 			}
 		</style>
 		<title>线代笔记 - 导航</title>
@@ -69,7 +81,7 @@
 				<a href="https://github.com/Twisuki">
 					<img src="avatar.png" /> Nya_Twisuki
 				</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
 				仓库链接: 
 				<a href="https://github.com/Twisuki/Notes-on-Linear-Algebra">
 					<img src="github.png" /> Notes-on-Linear-Algebra
@@ -79,13 +91,23 @@
 		
 		<div id="index">
 			<div id="index-book">
-				<a href="">全书预览 </a>
+				全书预览
+				<a href="Book.html">Book.html</a>
 			</div>
 			<div id="index-chapter">
 				章节预览
-				<a href="">第一章 行列式</a>
-				<a href="">第二章 矩阵</a>
-				<a href="">第三章 向量空间</a>
+				<li>
+					<a href="https://github.com/Twisuki/Notes-on-Linear-Algebra/blob/chapter/Chapter 1.md">第一章 行列式</a>
+				</li>
+				<li>
+					<a href="https://github.com/Twisuki/Notes-on-Linear-Algebra/blob/chapter/Chapter 2.md">第二章 矩阵</a>
+				</li>
+				<li>
+					<a href="https://github.com/Twisuki/Notes-on-Linear-Algebra/blob/chapter/Chapter 3.md">第三章 向量空间</a>
+				</li>
+				<li>
+					<a href="https://github.com/Twisuki/Notes-on-Linear-Algebra/blob/chapter/Chapter 4.md">第四章 线性方程组</a>
+				</li>
 			</div>
 		</div>
 	</body>
