@@ -6,7 +6,7 @@
 
 本来就是自己使用, 后来听从涵酱[@yuhan2680](https://github.com/yuhan2680)建议上传到Github
 
-[笔记Page页]()
+[笔记Page页](https://twisuki.github.io/Notes-on-Linear-Algebra)
 
 [Github主页](https://github.com/Twisuki)
 
