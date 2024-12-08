@@ -3189,3 +3189,472 @@ $$
 $$
 X = \eta_1 + k (\eta_1 = \frac{1}{2} (\eta_1 + \eta_2)) = (2, 3, 4, 5)^T + k(\frac{3}{2}, 2, \frac{5}{2}, 3)^T
 $$
+
+## 4.4 矩阵的特征值与特征向量
+
+### 4.4.1 特征值与特征向量
+
+> 定义1 设 $A$ 是 $n$ 阶方阵, 若存在一个数 $\lambda$ 和 $n$ 维非零向量 $\alpha$ , 使
+
+$$
+A \alpha = \lambda \alpha
+$$
+
+成立, 则称数 $\lambda$ 为方阵 $A$ 的特征值, 非零向量 $\alpha$ 称为 $A$ 对应于特征值 $\lambda$ 的特征向量
+
+**若 $\alpha, \beta$ 是矩阵 $A$ 的属于特征值 $\lambda$ 的特征向量, 则 $k \alpha$ 和 $k_1 \alpha + k_2 \beta$ 也为 $A$ 的属于特征值 $\lambda$ 的特征向量**
+
+设 $n$ 阶矩阵 $A$ 的特征值为 $\lambda$ , 非零向量 $\alpha$ 为 $A$ 的属于特征值 $\lambda$ 的特征向量, 则
+
+$$
+(\lambda E - A) \alpha = \mathbf{0}
+$$
+
+因此, 特征向量 $\alpha$ 是齐次线性方程组 
+
+$$
+(\lambda E - A) X = \mathbf{0}
+$$
+
+的非零解. 又方程组有非零解充要条件是其系数矩阵为降秩矩阵, 即系数矩阵的行列式
+
+$$
+\left | \lambda E - A \right | = 0
+$$
+
+因此, $\lambda$ 是方阵 $A$ 的特征值的充要条件是 $\left | \lambda E - A \right | = 0$
+
+> 定义2 设 $A$ 是 $n$ 阶方阵, 称 $f(\lambda) = \left | \lambda E - A \right |$ 为 $A$ 的特征多项式, 方程 $\left | \lambda E - A \right | = 0$ 称为 $A$ 的特征方程
+
+由此可知, 矩阵 $A$ 的特征值就是其特征方程的根. 复数范围内, $n$ 阶矩阵 $A$ 有 $n$ 个特征值
+
+矩阵 $A$ 的属于特征值 $\lambda$ 的特征向量就是齐次线性方程组 $(\lambda E - A) = \mathbf{0}$ 的非零解
+
+**注意: 由于 $\left | \lambda E - A \right | = (-1)^n \left | \lambda E - A \right |$ , 故又是也称 $\left | \lambda E - A \right |$ 为 $A$ 的特征方程**
+
+相应的, 矩阵 $A$ 的属于特征值 $\lambda$ 的特征向量是齐次线性方程组 $(\lambda E - A) X = \mathbf{0}$ 的非零解
+
+求解一个矩阵 $A$ 的特征值与特征方程的步骤为
+
+1. 求出 $A$ 的特征方程 $\left | \lambda E - A \right | = 0$ 的全部根, 即得 $A$ 的全部特征值 $\lambda_1, \lambda_2, \cdots, \lambda_n$
+2. 将每个特征值 $\lambda_i$ 代入齐次线性方程组 $(\lambda_i E - A) X = \mathbf{0}$ , 求出基础解系, 就是 $A$ 对应于特征值 $\lambda_i$ 的特征向量, 基础解系的线性组合(零向量除外)就是 $A$ 对应于 $\lambda_i$ 的全部特征向量
+
+例 求矩阵
+
+$$
+A = \begin{pmatrix}
+  -1 & 1 & 0 \\
+  -4 & 3 & 0 \\
+  1 & 0 & 2
+\end{pmatrix}
+$$
+
+的特征值和相应的特征向量
+
+解 $A$ 的特征方程为
+
+$$
+\left | \lambda E - A \right | = 
+\begin{vmatrix}
+  \lambda + 1 & -1 & 0 \\
+  4 & \lambda - 3 & 0 \\
+  -1 & 0 & \lambda - 2
+\end{vmatrix}
+= (\lambda - 2)(\lambda - 1)^2 = 0
+$$
+
+故 $A$ 的特征值分别为 $\lambda_1 = 2, \lambda_2 = \lambda_3 = 1$
+
+当 $\lambda = 2$ 时
+
+$$
+\lambda E - A = 2E - A =
+\begin{pmatrix}
+  3 & -1 & 0 \\
+  4 & -1 & 0 \\
+  -1 & 0 & 0
+\end{pmatrix}
+\xrightarrow[\cdots]{\cdots}
+\begin{pmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 0
+\end{pmatrix}
+$$
+
+因此, 齐次线性方程组 $(2E - A)X = \mathbf{0}$ 的一个基础解系为 $\xi_1 = (0, 0, 1)^T$ , 从而矩阵 $A$ 的属于特征值 $\lambda = 2$ 的一个特征向量为 $\xi_1 = (0, 0, 1)^T$
+
+当 $\lambda = 1$ 时
+
+$$
+E - A = 
+\begin{pmatrix}
+  2 & -1 & 0 \\
+  4 & -2 & 0 \\
+  -1 & 0 & -1
+\end{pmatrix}
+\xrightarrow[\cdots]{\cdots}
+\begin{pmatrix}
+  1 & 0 & 1 \\
+  0 & 1 & 2 \\
+  0 & 0 & 0
+\end{pmatrix}
+$$
+
+因此, 齐次线性方程组 $(E - A)X = \mathbf{0}$ 的一个基础解系为 $\xi_2 = (-1, -2, 1)^T$ , 从而矩阵 $A$ 的属于特征值 $\lambda = 1$ 的一个特征向量为 $\xi_2 = (-1, -2, 1)^T$
+
+综上, $k_1 \xi_1, k_2 \xi_2$ 分别为 $A$ 的属于特征值 $2$ 和 $1$ 的特征向量
+
+例 求矩阵
+
+$$
+A = \begin{pmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1 & 1
+\end{pmatrix}
+$$
+
+的特征值和特征向量
+
+解
+
+$A$ 的特征多项式
+
+$$
+f(\lambda) = \left | \lambda E - A \right | = 
+\begin{vmatrix}
+  \lambda - 1 & -1 & -1 & -1 \\
+  -1 & \lambda - 1 & -1 & -1 \\
+  -1 & -1 & \lambda - 1 & -1 \\
+  -1 & -1 & -1 & \lambda - 1
+\end{vmatrix}
+$$
+
+把行列式二三四列加到一列, 得
+
+$$
+\begin{aligned}
+  & f(\lambda) = \begin{vmatrix}
+    \lambda - 4 & -1 & -1 & -1 \\
+    \lambda - 4 & \lambda - 1 & -1 & -1 \\
+    \lambda - 4 & -1 & \lambda - 1 & -1 \\
+    \lambda - 4 & -1 & -1 & \lambda - 1
+  \end{vmatrix} \\
+  & = (\lambda - 4) \begin{vmatrix}
+    1 & -1 & -1 & -1 \\
+    1 & \lambda - 1 & -1 & -1 \\
+    1 & -1 & \lambda - 1 & -1 \\
+    1 & -1 & -1 & \lambda - 1
+  \end{vmatrix} \\
+  & =(\lambda - 4) \begin{vmatrix}
+    1 & -1 & -1 & -1 \\
+    0 & \lambda & 0 & 0 \\
+    0 & 0 & \lambda & 0 \\
+    0 & 0 & 0 & \lambda
+  \end{vmatrix} \\
+  & =\lambda^3 (\lambda - 4)
+\end{aligned}
+$$
+
+故 $A$ 的特征值为 $\lambda_1 = \lambda_2 = \lambda_3 = 0, \lambda_4 = 4$
+
+当 $\lambda = 0$ 时, $(\lambda E - A) X = -AX = \mathbf{0}$ 的基础解系为方程
+
+$$
+x_1 + x_2 + x_3 + x_4 = 0
+$$
+
+的基础解系, 即 $\xi_1 = (-1, -1, 0, 0)^T, \xi_2 = (-1, 0, 1, 0)^T, \xi_3 = (-1, 0, 0, 1)^T$
+
+故 $A$ 的输入 $\lambda = 0$ 的特征向量为全体 $k_1 \xi_1 + k_2 \xi_2  + k_3 \xi_3$
+
+当 $\lambda = 4$ 时
+
+$$
+4E - A = \begin{pmatrix}
+  3 & -1 & -1 & -1 \\
+  -1 & 3 & -1 & -1 \\
+  -1 & -1 & 3 & -1 \\
+  -1 & -1 & -1 & 3
+\end{pmatrix}
+\xrightarrow[]{} \begin{pmatrix}
+  1 & 0 & 0 & -1 \\
+  0 & 1 & 0 & -1 \\
+  0 & 0 & 1 & -1 \\
+  0 & 0 & 0 & 0 
+\end{pmatrix}
+$$
+
+因此, 齐次线性方程组 $(4E - A)X = \mathbf{0}$ 的一个基础解系为 $\xi_4 = (1, 1, 1, 1)^T$ , 而 $k_4 \xi_4$ 是 $A$ 的属于 $\lambda = 4$ 的全部特征向量
+
+### 4.4.2 特征值与特征向量的性质
+
+> 性质1 $n$ 阶矩阵 $A$ 与它的转置矩阵 $A^T$ 有相同的特征值
+
+证
+
+$$
+\left | \lambda E - A^T \right | = \left | (\lambda E - A)^T \right | = \left | \lambda E - A \right |
+$$
+
+则 $A^T$ 和 $A$ 有相同的特征多项式
+
+> 性质2 设 $A = (a_{ij})$ 是 $n$ 阶矩阵, 则
+
+$$
+\begin{aligned}
+  & f(\lambda) = \left | \lambda E - A \right | = \\
+  & \begin{vmatrix}
+    \lambda - a_{11} & -a_{12} & \cdots & -a_{1n} \\
+    -a_{21} & \lambda - a_{22} & \cdots & -a_{2n} \\
+    \vdots & \vdots &   & \vdots \\
+    -a_{n1} & -a_{n2} & \cdots & \lambda - a_{nn}
+  \end{vmatrix} \\
+  & \lambda^n - (a_{11} + a_{22} + \cdots + a_{nn}) \lambda^{n - 1} + \cdots + (-1)^n \left | A \right |
+\end{aligned}
+$$
+
+设 $\lambda_1, \lambda_2, \cdots, \lambda_n$ 是 $A$ 的 $n$ 个特征值, 则由 $n$ 次代数方程组的跟据系数关系知
+
+- $\lambda_1 + \lambda_2 + \cdots + \lambda_n = a_{11} + a_{22} + \cdots + a_{nn}$
+- $\left | A \right | = \lambda_1 \lambda_2 \cdots \lambda_n$
+
+其中 $A$ 的主对角线元素之和 $a_{11} + a_{22} + \cdots + a_{nn}$ 称为矩阵 $A$ 的迹, 记作 $tr(A)$
+
+**由性质2可知, 若 $A$ 可逆, 则 $A$ 的特征值都不等于零, 而 $A$ 是奇异矩阵时, $A$ 至少有一个零特征值**
+
+> 性质3 设 $\lambda$ 是矩阵 $A$ 的特征值, $\alpha$ 是 $A$ 的属于特征值 $\lambda$ 的特征向量, 则
+
+- $k \lambda$ 是 $kA$ 的特征值 $(k \in R)$
+- $\lambda^m$ 是 $A^m$ 的特征值 $(m是正整数)$
+- 当 $A$ 可逆时, $\lambda^{-1}$ 是 $A^{-1}$ 的特征值
+
+**而且, $\alpha$ 仍是 $kA, A^m, A^{-1}$ 分别属于特征值 $k \lambda, \lambda^m, \lambda^{-1}$ 的特征向量**
+
+证明 3
+
+若 $A \alpha = \lambda \alpha$ , 由 $\lambda \ne 0$ 知
+
+$$
+\lambda = A^{-1} \lambda \alpha \ , \ A^{-1} \alpha = \frac{1}{\lambda} \alpha
+$$
+
+故 $\frac{1}{\lambda}$ 是 $A^{-1}$ 的特征值, 同时 $\alpha$ 是 $A^{-1}$ 的输入 $\frac{1}{\lambda}$ 的特征向量
+
+例 设三阶矩阵 $A$ 的特征值为 $1, -1, 2$ , $A^*$ 为 $A$ 的伴随矩阵, 求 $\left | A^* + 3A - 2E \right |$
+
+解
+
+因为 $A$ 的特征值全不为零, 则 $A$ 可逆. 由 $A^* A = \left | A \right | E$ 以及 $\left | A \right | = \lambda_1 \lambda_2 \lambda_3 = -2$ 知, $A^* = -2 A^{-1}$ . 所以, 令
+
+$$
+B = A^* + 3A - 2E = -2A^{-1} + 3A - 2E
+$$
+
+则 $B$ 有特征值 $-1, -3, 3$ (一般地, 当 $A$ 有特征值 $\lambda$ 时, $aA + bE$ 有特征值 $a \lambda + b$), 从而
+
+$$
+\left | A^* + 3A - 2E \right | = \left | B \right | = (-1) \cdot (-3) \cdot 3 = 9
+$$
+
+> 性质4 $n$ 阶矩阵 $A$ 的互不相同的特征值 $\lambda_1, \lambda_2, \cdots , \lambda_n$ 对应的特征向量 $\alpha_1, \alpha_2, \cdots , \alpha_n$ 线性无关
+
+证 数学归纳法
+
+已知 $A \alpha_i = \lambda_i \alpha_i \ (i = 1, 2, \cdots , m)$
+
+当 $m = 1$ 时, $\alpha_1 \ne \mathbf{0}$ , 结论成立
+
+假设 $m - 1$ 时结论成立
+
+设有常数 $k_1. k_2. \cdots , k_m$ , 使
+
+$$
+k_1 \alpha_1 + k_2 \alpha_2 + \cdots + k_{m - 1} \alpha_{m - 1} + k_m \alpha_m = \mathbf{0}
+$$
+
+用矩阵 $A$ 左乘上式 
+
+$$
+k_1 A \alpha_1 + k_2 A \alpha_2 + \cdots + k_{m - 1} A \alpha_{m - 1} + k_m A \alpha_m = \mathbf{0}
+$$
+
+代入 $A \alpha_i = \lambda_i \alpha_i \ (i = 1, 2, \cdots , m)$
+
+$$
+k_1 \lambda_1 \alpha_1 + k_2 \lambda_2 + \alpha_2 + \cdots + k_{m - 1} \lambda_{m - 1} \alpha_{m - 1} + k_m \lambda_m \alpha_m
+$$
+
+上式减去 $\lambda_m$ 倍一式, 消去 $\alpha_m$ , 得
+
+$$
+k_1 (\lambda_1 - \lambda_m) \alpha_1 + k_2 (\lambda_2 - \lambda_m) \alpha_2 + \cdots + k_{m - 1} (\lambda_{m - 1} - \lambda_m) \alpha_{m - 1} = \mathbf{0}
+$$
+
+假设 $m - 1$ 时成立, 即 $\alpha_1, \alpha_2, \cdots , \alpha_{m - 1}$ 线性无关, 则
+
+$$
+k_i (\lambda_i - \lambda_m) = 0 \ (i = 1, 2, \cdots , m - 1)
+$$
+
+因为 $\lambda_1, \lambda_2, \cdots , \lambda_m$ 互不相同, 则
+
+$$
+k_i = 0 \ (i = 1, 2, \cdots , m - 1)
+$$
+
+代入一式得 $k_m \alpha_m = \mathbf{0}$ , 而 $\alpha_m \ne \mathbf{0}$ , 则 $k_m = 0$ , 同理
+
+$$
+k_1 = k_2 = \cdots = k_m = 0
+$$
+
+即 $\alpha_1, \alpha_2, \cdots , \alpha_m$ 线性无关, 证毕
+
+## 4.5  矩阵的相似对角化
+### 4.5.1 相似矩阵的概念和性质
+
+> 定义1 设 $A, B$ 都是 $n$ 阶矩阵, 若存在可逆矩阵 $P$ , 使
+
+$$
+P^{-1}AP = B
+$$
+
+则称 $B$ 是 $A$ 的相似矩阵, 并称矩阵 $A$ 与 $B$ 相似, 记作 $A \sim B$
+
+矩阵的相似关系是一种等价关系, 满足
+
+- 自反性 : $A \sim A$
+- 对称性 : 若 $A \sim B$ , 则 $B \sim A$
+- 传递性 : 若 $A \sim B, B \sim C$ , 则 $A \sim C$
+
+证明第三个
+
+若 $A \sim B, B \sim C$ , 则分别存在可逆矩阵 $P, Q$ , 使
+
+$$
+P^{-1}AP = B \ , \ Q^{-1}BQ = C
+$$
+
+故
+
+$$
+C = Q^{-1}(P^{-1}AP)Q = (Q^{-1}P^{-1})A(PQ) = (PQ)^{-1}A(PQ)
+$$
+
+则 $A \sim C$
+
+例 设矩阵 $A = \begin{pmatrix} 3 & 1 \\ 5 & -1 \end{pmatrix} \ , \ B = \begin{pmatrix} 4 & 0 \\ 0 & -2 \end{pmatrix}$ , 试严重存在可逆矩阵 $P = \begin{pmatrix} 1 & 1 \\ 1 & -5 \end{pmatrix}$ , 使 $A \sim B$
+
+易证 $P$ 可逆, 且 $P^{-1} = \begin{pmatrix} \frac{5}{6} & \frac{1}{6} \\ \frac{1}{6} & -\frac{1}{6} \end{pmatrix}$ , 由
+
+$$
+P^{-1}AP = \frac{1}{5} \begin{pmatrix} 5 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 3 & 1 \\ 5 & -1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -5 \end{pmatrix} = \begin{pmatrix} 4 & 0 \\ 0 & -2 \end{pmatrix} = B
+$$
+
+得 $A \sim B$
+
+> 性质1 若 $A \sim B$ , 则 $r(A) = r(B)$ , 即相似矩阵有相同的秩
+
+若 $A \sim B$ , 则 $A \approx B (等价)$ , 故 $r(A) = r(B)$
+
+> 性质2 相似矩阵行列式相等
+
+$$
+\left | P^{-1}AP \right | = \left | P^{-1} \right | \left | A \right | \left | P \right | 
+= \left | P^{-1} \right | \left | P \right | \left | A \right | \\
+= \left | P^{-1}P \right | \left | A \right | = \left | E \right | \left | A \right | = \left | A \right |
+$$
+
+> 性质3 相似矩阵具有相同和可逆性, 当他们可逆时, 他们的逆矩阵也相似
+
+若 $A, B$  相似且都可逆, 则存在非奇异矩阵 $P$ , 使
+
+$$
+P^{-1}AP = B
+$$
+
+于是
+
+$$
+B^{-1} = P^{-1}A^{-1}P
+$$
+
+即 $A^{-1}, B^{-1}$ 相似
+
+> 性质4 若 $A \sim B$ , 则 $A. B$ 存在相同的特征多项式, 从而欧相同的特征值
+
+证
+
+$$
+\left | \lambda E - B \right | = \left | \lambda E - P^{-1}AP \right | = \left | P^{-1}(\lambda E - A)P \right | = \left | P^{-1} \right | \left | \lambda E - A \right | \left | P \right | = \left | \lambda E - A \right |
+$$
+
+即 $A, B$ 有相同的特征多项式, 均为 $f(\lambda) = (\lambda - 4)(\lambda + 2)$ , 故 $A, B$ 有相同的特征值 $\lambda_1 = 4, \lambda_2 = -2$
+
+### 4.5.2 矩阵与对角矩阵形似的条件
+
+规定对角矩阵
+
+$$
+\Lambda = \begin{pmatrix}
+  \lambda_1 \\
+   & \lambda_2 \\
+   &   & \ddots \\
+   &   &   & \lambda_n
+\end{pmatrix}
+$$
+
+可简记为 $\Lambda = diag(\lambda_1, \lambda_2, \cdots , \lambda_n)$
+
+> 定理1 $n$ 阶矩阵 $A$ 与对角矩阵 $\Lambda = diag(\lambda_1, \lambda_2, \cdots , \lambda_n)$ 相似的充要条件为矩阵 $A$ 有 $n$ 个线性无关的特征向量
+
+证
+
+必要性 若 $A$ 与 $\Lambda$ 相似, 则存在可逆矩阵 $P$ 使得
+
+$$
+P^{-1}AP = \Lambda
+$$
+
+设 $P = (p_1, p_2, \cdots , p_n)$ , 其中 $p_i \ (i = 1, 2, \cdots , n)$ 为 $P$ 的列向量, 则由 $AP = P\Lambda$ 得
+
+$$
+A(p_1, p_2, \cdots , p_n) = (p_1, p_2, \cdots , p_n)\begin{pmatrix}
+  \lambda_1 \\
+   & \lambda_2 \\
+   &   & \ddots \\
+   &   &   & \lambda_n
+\end{pmatrix}
+$$
+
+即
+
+$$
+Ap_i = \lambda_i p_i \ (i = 1, 2, \cdots , n)
+$$
+
+因为 $P$ 可逆, 则 $\left | P \right | \ne 0$ , 从而 $p_i \ (i = 1, 2, \cdots , n)$ 都是非零向量. 因此 $p_1, p_2, \cdots , p_n$ 都是 $A$ 的特征向量, 且它们线性无关
+
+充分性 设 $p_1, p_2, \cdots , p_n$ 为 $A$ 的 $n$ 个线性无关的特征向量, 它们所对应的特征值为 $\lambda_1, \lambda_2, \cdots , \lambda_n$ , 则有
+
+$$
+Ap_i = \lambda_i p_i / (i = 1, 2, \cdots , n)
+$$
+
+令 $P = (p_1, p-2, \cdots , p_n)$ , 易知 $P$ 可逆, 且
+
+$$
+AP = A(p_1, p_2, \cdots , p_n) = (Ap_1, Ap_2, \cdots , Ap_n) \\ \ \\
+= (\lambda_1 p_1, \lambda_2 p_2 , \cdots , \lambda_n p_n) \\ \ \\
+= (p_1, p_2, \cdots , p_n) \begin{pmatrix}
+  \lambda_1 \\
+   & \lambda_2 \\
+   &   & \ddots \\
+   &   &   & \lambda_n
+\end{pmatrix}
+$$
+
+> 推论1 若 $n$ 阶矩阵 $A$ $b$ 个互异的特征值 $\lambda_1, \lambda_2, \cdots , \lambda_n$
