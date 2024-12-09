@@ -1193,4 +1193,92 @@ AP = A(p_1, p_2, \cdots , p_n) = (Ap_1, Ap_2, \cdots , Ap_n) \\ \ \\
 \end{pmatrix}
 $$
 
-> 推论1 若 $n$ 阶矩阵 $A$ $b$ 个互异的特征值 $\lambda_1, \lambda_2, \cdots , \lambda_n$
+> 推论1 若 $n$ 阶矩阵 $A$ $b$ 个互异的特征值 $\lambda_1, \lambda_2, \cdots , \lambda_n$ , 则 $A$ 与对角矩阵 $\Lambda = diag(\lambda_1, \lambda_2, \cdots , \lambda_n)$ 相似
+
+对于 $n$ 阶方阵 $A$ , 若存在可逆矩阵 $P$ , 使 $P_{-1}AP = \Lambda$ 为对角矩阵, 则称方阵 $A$ 可对角化
+
+给定 $n$ 阶方阵 $A$ , 其特征方程式 $f(\lambda) = (\lambda - \lambda_1)^{n_1} \cdots (\lambda - \lambda_s)^{n_s}$ , 其中 $n_1 + n_2 + \cdots + n_s = n$ , 则有
+
+> 定理2 $n$ 阶矩阵 $A$ 可对角化的充要条件是对应于 $A$ 的每个特征值的线性无关的特征向量的个数恰好等于该特征值的重数, 即设 $\lambda_i$ 为矩阵 $A$ 的 $n_i$ 重特征值, 则 $A$ 与 $\Lambda$ 相似, 当且仅当
+
+$$
+r(\lambda_i E - A) = n - n_i \ (i = 1, 2, \cdots , s)
+$$
+
+例如, 矩阵 $\begin{pmatrix} 1 & 1 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ 的特征值为 $1, 0, 0$ , 对于 $\lambda_2 = 0, n_2 = 3, n = 3$ , 有
+
+$$
+r(\lambda_2 E - A) = 1 = n - n_2
+$$
+故 $a$ 能对角化
+
+又如, 矩阵 $\begin{pmatrix} 1 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$ 的特征值也为 $1, 0, 0$ , 对 $\lambda_2 = 0, n_2 = 2, n = 3$ , 有
+
+$$
+r(\lambda_2 E - A) = 2 \ne n - n_2
+$$
+
+故 $B$ 不能对角化
+
+### 4.5.3 矩阵对角化的步骤
+
+定理1证明过程即为矩阵对角化的步骤, 当方阵 $A$ 可对角化时
+
+- 求出 $A$ 的全部特征值 $\lambda_1, \lambda_2, \cdots , \lambda_s$
+- 对于每个特征值 $\lambda_i$ , 设其重数为 $n_i$ , 则对应齐次方程组
+
+$$
+(\lambda_i E - A)X = \mathbf{0}
+$$
+
+的基础解系由 $n_i$ 个向量 $\xi_{11}, \xi_{12}, \cdots , \xi_{1n_i}$ 构成, 即 $\xi_{11}, \xi_{12}, \cdots , \xi_{1n_i}$ 为 $\lambda_i$ 对应的特征向量
+
+- 上面求出的特征向量 $\xi_{11}, \xi_{12}, \cdots , \xi_{1n_1}; \xi_{21}, \xi_{22}, \cdots , \xi_{2n_2}; \cdots \cdots; \xi_{s1}, \xi_{s2}, \cdots , \xi_{sn_s}$ 恰好为矩阵 $A$ 的 $n$ 个线性无关的特征向量
+- 令 $\Lambda = diag(\lambda_1, \cdots , \lambda_1; \lambda_2, \cdots , \lambda_2; \cdots \cdots ; \lambda_s, \cdots ,\lambda_s)$ , $P = \xi_{11}, \xi_{12}, \cdots , \xi_{1n_1}; \xi_{21}, \xi_{22}, \cdots , \xi_{2n_2}; \cdots \cdots; \xi_{s1}, \xi_{s2}, \cdots , \xi_{sn_s}$ , 则
+
+$$
+P^{-1}AP = \Lambda
+$$
+
+例 设 $A = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 1 & a \\ 1 & 0 & 0 \end{pmatrix}$ , $a$ 为何值时, 矩阵 $A$ 能对角化
+
+解
+
+$$
+\left | \lambda E - A \right | = \begin{pmatrix}
+  \lambda & 0 & -1 \\
+  -1 & \lambda - 1 & -a \\
+  -1 & 0 & \lambda
+\end{pmatrix} 
+= (\lambda - 1)^2 (\lambda + 1)
+$$
+
+得 $\lambda_1 = -1, \lambda_2 = \lambda_3 = 1$ , 要使矩阵 $A$ 能对角化, 由定理2: 对应单根 $\lambda_1 = -1$ , 可求得线性无关的特征向量恰有 $1$ 个; 对应重根 $\lambda_2 = \lambda_3 = 1$ , 应有 $2$ 个线性无关的特征向量, 即方程
+
+$$
+\left | E - A \right | X = 0
+$$
+
+有两个线性无关的解, 即系数矩阵 $E - A$ 的秩
+
+$$
+r(E - A) = 1
+$$
+
+又
+
+$$
+E - A = \begin{pmatrix}
+  1 & 0 & -1 \\
+  -1 & 0 & -a \\
+  -1 & 0 & 1
+\end{pmatrix}
+\xrightarrow[]{}
+\begin{pmatrix}
+  1 & 0 & -1 \\
+  0 & 0 & a + 1 \\
+  0 & 0 & 0
+\end{pmatrix}
+$$
+
+要使 $r = 1$ , 则 $a + 1 = 0$ , 即 $a = -1$
