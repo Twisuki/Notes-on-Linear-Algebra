@@ -3746,3 +3746,116 @@ E - A = \begin{pmatrix}
 $$
 
 要使 $r = 1$ , 则 $a + 1 = 0$ , 即 $a = -1$
+
+因此, $a = -1$ 时, 矩阵 $A$ 能对角化
+
+例 给定矩阵 
+
+$$
+A = \begin{pmatrix}
+  1 & -2 & 2 \\
+  -2 & -2 & 4 \\
+  2 & 4 & -2
+\end{pmatrix}
+$$
+
+判断 $A$ 能否化为对角矩阵; 求可逆矩阵 $P$ 和对角矩阵 $\Lambda$ , 使 $P^{-1}AP = \Lambda$ ; 求 $A^n \ (n \ge 2)$
+
+解
+
+$$
+\left | \lambda E - A \right | = \begin{pmatrix}
+  \lambda - 1 & 2 & -2 \\
+  2 & \lambda + 2 & 4 \\
+  -2 & -4 & \lambda + 2
+\end{pmatrix} 
+= (\lambda - 2)^2(\lambda + 7) = 0
+$$
+
+得特征值 $\lambda_1 = \lambda_2 = 2, \lambda_3 = -7$ , 对应 $\lambda_1, \lambda_2$ 为二重特征值, 可验证 $r(\lambda_1 E - A) = 1$ , 故得齐次线性方程组
+
+$$
+(\lambda_1 E - A)X = \mathbf{0}
+$$
+
+的基础解系有两个线性无关的解, 又 $\lambda_3 = -7$ 时, 可知 $r(\lambda_3 E - A) = 2$ , 则
+
+$$
+(\lambda_3 E - A)X = \mathbf{0}
+$$
+
+的基础解系只有一个向量, 故矩阵 $A$ 有三个线性无关的特征向量, 从而 $A$ 可以对角化
+
+从上式中分别求出基础解系
+
+$$
+p_1 = \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} , 
+p_2 = \begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix} \\
+p_3 = \begin{pmatrix} 1 \\ 2 \\ -2 \end{pmatrix}
+$$
+
+令 $P = (p_1, p_2, p_3) = \begin{pmatrix}
+  -2 & 2 & 1 \\
+  1 & 0 & 2 \\
+  0 & 1 & -2
+\end{pmatrix} \ , \ \Lambda = \begin{pmatrix}
+  2 \\
+    & 2 \\
+    &  & -7 
+\end{pmatrix}$ , 则有
+
+$$
+P^{-1}AP = \Lambda
+$$
+
+此时 $P^{-1} = \frac{1}{9} \begin{pmatrix}
+  -2 & 5 & 4 \\
+  2 & 4 & 5 \\
+  1 & 2 & -2
+\end{pmatrix}$
+
+由 $P^{-1}AP = \Lambda$ 得 $A = P\Lambda P^{-1}$ , 从而
+
+$$
+A^2 = A \cdot A = (P\Lambda P^{-1})(P\Lambda P^{-1}) = P \Lambda^2 P^{-1} \\
+A^n = A \cdot A \cdot \cdots \cdot A = P \Lambda^n P^{-1} \\
+= \begin{pmatrix}
+  -2 & 2 & 1 \\
+  1 & 0 & 2 \\
+  0 & 1 & -2
+\end{pmatrix} \begin{pmatrix}
+  2 \\
+    & 2 \\
+    &   & -7\end{pmatrix}^n [\frac{1}{9} \begin{pmatrix}
+  -2 & 5 & 4 \\
+  2 & 4 & 5 \\
+  1 & 2 & -2
+\end{pmatrix}] \\
+= \frac{1}{9} \begin{pmatrix}
+  -2 & 2 & 1 \\
+  1 & 0 & 2 \\
+  0 & 1 & -2
+\end{pmatrix} \begin{pmatrix}
+  2^n \\
+    & 2^n \\
+    &   & (-7)^n
+\end{pmatrix} \begin{pmatrix}
+  -2 & 5 & 4 \\
+  2 & 4 & 5 \\
+  1 & 2 & -2
+\end{pmatrix} \\
+= \frac{1}{9} \begin{pmatrix}
+  -2^{n + 1} & 2^{n + 1} & (-7)^n \\
+  2^n & 0 & 2(-7)^n \\
+  0 & 2^n & (-2)(-7)^n
+\end{pmatrix} \begin{pmatrix}
+  -2 & 5 & 4 \\
+  2 & 4 & 5 \\
+  1 & 2 & -2
+\end{pmatrix} \\ 
+= \frac{1}{9} \begin{pmatrix}
+  2^{n + 3} + (-7)^n & -2^{n + 1} + 2(-7)^n & 2^{n + 1} - 2(-7)^n \\
+  -2^{n + 1} + 2(-7)^n & 5 \cdot 2^n + 4(-7)^n & 2^{n + 2} - 4(-7)^n \\
+  2^{n + 1} - 2(-7)^n & 2^{n + 2} - 4(-7)^n & 5 \cdot 2^n + 4(-7)^n
+\end{pmatrix}
+$$
