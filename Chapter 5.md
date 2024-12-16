@@ -125,6 +125,43 @@ $$
 
 如果满秩线性变换 $X = CY$ 将二次型 $X^TAX$ 化成了标准二次型 $\sum_{i = 1}^n \lambda_i y_i^2$ , 则称 $\sum_{i = 1}^n \lambda_i y_i^2$ 为二次型 $X^TAX$ 的一个标准型
 
-> 定理1 对于任意二次型 $f = X^TAX$ , 一定存在满秩线性变换 $X = CY$ , 使二次型华为标准型
+> 定理1 对于任意二次型 $f = X^TAX$ , 一定存在满秩线性变换 $X = CY$ , 使二次型华为标准形
 
 > 推论1 任意给定一个实对称矩阵 $A$ , 一定存在可逆矩阵 $C$ , 使 $C^TAC$ 为对角矩阵 (即对于任意实对称矩阵都有一个一个对角矩阵与之合同)
+
+## 5.2 正交变换法化二次型为标准形
+
+如果在二次型满秩变换 $X = CY$ 中, 矩阵 $C$ 为正交矩阵, 则称此变换为正交变换
+
+### 5.2.1 实对称矩阵的对角化
+
+> 定理1 实对称矩阵的特征值都是实数
+
+证 设 $\lambda$ 为实对称矩阵 $A$ 的特征值, $X$ 为对应的特征向量, 即有
+
+$$
+AX = \lambda X \ , \ X \ne \mathbf{0}
+$$
+
+用 $\overline{X}$ 将向量 $X$ 的所有分量都换成共轭复数之后的向量, 称为 $X$ 的共轭向量, 上式两侧同时取共轭
+
+$$
+A \overline{X} = \overline{\lambda} \overline{X} \ , \ X \ne \mathbf{0}
+$$
+
+上式两边同时取转置, 由 $A$ 的对称性得
+
+$$
+\overline{X}^T A = \overline{\lambda} \overline{X}^T \\ 
+\overline{X}^T AX = \overline{X}^T (\lambda X) = \lambda \overline{X}^T X
+$$
+
+则
+
+$$
+(\lambda - \overline{\lambda}) \overline{X}^T X = 0
+$$
+
+又 $X \ne \mathbf{0}$ , 故 $\lambda = \overline{\lambda}$ , 即 $\lambda$ 为实数
+
+> 定理2 实对称矩阵的不同特征值对应的特征向量必正交
