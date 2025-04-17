@@ -367,3 +367,101 @@ $$
 $$
 
 所以 $A$ 的特征值为 $\lambda_1 = 0, \lambda_2 = 4, \lambda_3 = 9$ , 因此, 可利用正交变换将此二次型化为标准型 $f = 4y_2^2 + 9y_3^2$ , 而 $4y_2^3 + 9y_3^2 = 1$ 在 $R^3$ 中表示椭圆柱面, 所以 $f(x_1, x_2, x_3) = 1$ 表示的是椭圆柱面
+
+## 5.3 化二次型为标准型的其他方法
+### 5.2.1 配方法
+
+> 5.1.3的定理1 对于任意二次型 $f = X^TAX$ , 一定存在满秩线性变换 $X = CY$ , 使二次型华为标准型
+
+当 $n = 1$ 时, 二次型
+
+$$
+f(x_1) = a_{11}x_2^2
+$$
+
+已经是标准型.
+
+现假设 $n - 1$ 元的二次型满足定理1, 再设 $n$ 元二次型
+
+$$
+f(x_1, x_2, \cdots , x_n) = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij}x_ix_j \ , \ a_{ij} = a_{ji}(i, j = 1, 2, \cdots , n)
+$$
+
+当上述二次型的矩阵 $A$ 为零矩阵时, 结论显然成立, 下面假定矩阵 $A$ 不为零矩阵
+
+1. $A$ 的主对角元 $a_{ij}(i \le i \le n)$中至少有一个不为零, 不妨设 $a_{11} \ne 0$ , 这时
+
+$$
+f(x_1, x_2, \cdots , x_n) = a_{11}x_1^2 + \sum_{j = 2}^n a_{1j}x_1x_j + \sum_{i = 2}^n a_{i1}x_ix_1 + \sum_{i = 2}^n \sum_{j = 2}^n a_{ij}x_ix_j \\
+= a_{11}(x_1 + \sum_{j = 2}^n a_{11}^{-1}x_{1j}x_j)^2 - a_{11}^{-1}(\sum_{j = 1}^n a_{1j}x_j)^2 + \sum_{i = 2}^n \sum_{j = 2}^n a_{ij}x_ix_j \\
+a_{11}(x_1 + \sum_{j = 1}^n a_{11}^{-1}a_{1j}x_j)^2 + \sum_{i = 2}^n \sum_{j = 2}^n a_{ij}x_ix_j
+$$
+
+其中
+
+$$
+\sum_{i = 1}^n \sum_{j = 1}^n b_{ij}x_ix_j = - a_{11}^{-1} (\sum_{j = 2}^n a_{ij}x_j)^2 + \sum_{i = 2}^n \sum_{j = 2}^n a_{ij}x_ix_j
+$$
+
+为一个关于变量 $x_1, x_2, \cdots , x_n$ 的 $n - 1$ 元二次型, 令
+
+$$
+\begin{cases}
+    y_1 = x_1 + \sum_{j = 2}^n a_{11}^{-1}a_{1j}x_j \\
+    y_2 = x_2 \\
+    \cdots \cdots \cdots \cdots \\
+    y_n = x_n
+\end{cases}
+$$
+
+或
+
+$$
+\begin{cases}
+    y_1 = x_1 - \sum_{j = 2}^n a_{11}^{-1}a_{1j}x_j \\
+    y_2 = x_2 \\
+    \cdots \cdots \cdots \cdots \\
+    y_n = x_n
+\end{cases}
+$$
+
+显然上述变换为一个满秩的线性变换, 它使原二次型化为
+
+$$
+f(x_1, x_2, \cdots , x_n) = a_{11}y_1^2 + \sum_{i = 2}^n \sum_{j = 2}^n b_{ij}y_iy_j
+$$
+
+由归纳假定, 对于二次型 $\sum_{i = 2}^n \sum_{j = 2}^n b_{ij}y_iy_j$ , 存在满秩线性变换
+
+$$
+\begin{cases}
+    z_2 = c_{22}y_2 + c_{23}y_3 + \cdots + c_{2n}y_n \\
+    z_3 = c_{32}y_2 + c_{33}y_3 + \cdots + c_{3n}y_n \\
+    \cdots \cdots \cdots \cdots \\
+    z_n = c_{n2}y_2 + c_{n3}y_3 + \cdots + c_{nn}y_n
+\end{cases}
+$$
+
+使之变为标准型, 即
+
+$$
+\sum_{i = 2}^n \sum_{j = 2}^n = b_{ij}y_iy_j = d_2z_2^2 + d_3z_3^2 + \cdots + d_nz_n^2
+$$
+
+于是满秩的线性变换
+
+$$
+\begin{cases}
+    z_1 = y_1 \\
+    z_2 = c_{22}y_2 + c_{23}y_3 + \cdots + c_{2n}y_n \\
+    \cdots \cdots \cdots \cdots \\
+    z_n = c_{n2}y_2 + c_{n3}y_3 + \cdots + c_{nn}y_n
+\end{cases}
+$$
+
+将原二次型化为标准形, 即
+
+$$
+f(x_1, x_2, \cdots , x_n) = a_{11}z_1^2 + d_2z_2^2 + \cdots + d_nz_n^2
+$$
+
